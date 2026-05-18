@@ -1,13 +1,13 @@
 export default async function handler(req, res) {
   try {
-    const id = req.query.id || req.url.split('/').pop();
+    const url = req.url || '';
     const ua = req.headers['user-agent'] || '';
     const acc = req.headers['accept'] || '';
 
     let target = "";
-    if (id.includes('vip-yanto')) {
+    if (url.includes('vip-yanto')) {
       target = "https://raw.githubusercontent.com/Yantohub25/sc/main/V";
-    } else if (id.includes('free-yanto')) {
+    } else if (url.includes('free-yanto')) {
       target = "https://raw.githubusercontent.com/Yantohub25/sc/main/C";
     }
 
@@ -16,35 +16,54 @@ export default async function handler(req, res) {
     if (target && isExec) {
       const response = await fetch(target);
       const script = await response.text();
-      res.setHeader('Content-Type', 'text/plain; charset=utf-8');
+      res.setHeader('Content-Type: text/plain; charset=utf-8');
       return res.status(200).send(script);
     } else {
-      res.setHeader('Content-Type', 'text/html');
+      res.setHeader('Content-Type: text/html');
       return res.status(403).send(`
-        <!DOCTYPE html>
-        <html>
-        <head>
-          <title>YantoHub | Protected</title>
-          <style>
-            body { background: #050506; color: white; font-family: sans-serif; display: flex; align-items: center; justify-content: center; height: 100vh; margin: 0; }
-            .card { background: rgba(15,15,18,0.98); border: 1px solid #ff000033; border-radius: 30px; padding: 50px; text-align: center; box-shadow: 0 30px 100px #000; width: 400px; }
-            h1 { font-size: 30px; text-transform: uppercase; margin-bottom: 10px; }
-            h1 span { color: #ff0000; }
-            p { color: #666; font-size: 14px; margin-bottom: 30px; }
-            .btn { display: inline-block; background: linear-gradient(135deg, #ff0000, #990000); color: white; text-decoration: none; padding: 15px 30px; border-radius: 12px; font-weight: bold; }
-          </style>
-        </head>
-        <body>
-          <div class="card">
-            <h1>AKSES <span>DITOLAK</span></h1>
-            <p>Silakan gunakan executor Roblox untuk mengakses sistem YantoHub.</p>
-            <a href="https://dsc.gg/yantorobloxhub" class="btn">JOIN DISCORD</a>
-          </div>
-        </body>
-        </html>
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>YantoHub | Protected</title>
+    <link href="https://fonts.googleapis.com/css2?family=Syncopate:wght@700&family=Plus+Jakarta+Sans:wght@400;600;800&display=swap" rel="stylesheet">
+    <style>
+        :root { --p: #ff0000; --bg: #050506; --c: rgba(15, 15, 18, 0.98); }
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body { background: var(--bg); font-family: 'Plus Jakarta Sans', sans-serif; height: 100vh; display: flex; align-items: center; justify-content: center; overflow: hidden; color: white; }
+        body::before { content: ""; position: absolute; inset: 0; background: radial-gradient(circle at center, rgba(255, 0, 0, 0.1) 0%, transparent 70%); z-index: -1; }
+        body::after { content: ""; position: absolute; inset: 0; background-image: radial-gradient(rgba(255,255,255,0.03) 1px, transparent 1px); background-size: 35px 35px; z-index: -1; mask-image: radial-gradient(circle at center, black, transparent 80%); }
+        .sc { position: absolute; top: 0; left: 0; width: 100%; height: 3px; background: linear-gradient(90deg, transparent, var(--p), transparent); box-shadow: 0 0 15px var(--p); animation: scan 3s linear infinite; z-index: 5; }
+        @keyframes scan { 0% { top: -5%; } 100% { top: 105%; } }
+        .card { background: var(--c); border: 1px solid rgba(255, 0, 0, 0.2); border-radius: 30px; padding: 60px 45px; width: 460px; max-width: 92vw; text-align: center; backdrop-filter: blur(25px); box-shadow: 0 30px 100px #000; animation: em 0.8s cubic-bezier(0.16, 1, 0.3, 1); }
+        @keyframes em { from { opacity: 0; transform: translateY(30px); } to { opacity: 1; transform: translateY(0); } }
+        .sh { width: 90px; height: 90px; background: rgba(255, 0, 0, 0.05); border: 1px solid var(--p); border-radius: 22px; margin: 0 auto 30px; display: flex; align-items: center; justify-content: center; box-shadow: 0 0 30px rgba(255, 0, 0, 0.2); }
+        .ti { font-size: 32px; font-weight: 800; margin-bottom: 15px; text-transform: uppercase; }
+        .ti span { color: var(--p); }
+        .su { font-size: 14px; color: rgba(255,255,255,0.4); line-height: 1.7; margin-bottom: 35px; }
+        .btn { display: flex; align-items: center; justify-content: center; background: linear-gradient(135deg, #ff0000, #990000); color: white; text-decoration: none; padding: 18px; border-radius: 15px; font-weight: 800; font-size: 13px; transition: 0.4s; border: 1px solid rgba(255,255,255,0.1); text-transform: uppercase; }
+        .ft { margin-top: 40px; font-family: monospace; font-size: 10px; color: rgba(255,255,255,0.15); letter-spacing: 2px; }
+    </style>
+</head>
+<body>
+    <div class="sc"></div>
+    <div class="card">
+        <div class="sh">
+            <svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/><path d="m9 12 2 2 4-4"/>
+            </svg>
+        </div>
+        <h1 class="ti">AKSES <span>DITOLAK</span></h1>
+        <p class="su">Endpoint ini dilindungi oleh YantoHub Security System. Gunakan executor Roblox untuk memanggil data skrip.</p>
+        <a href="https://dsc.gg/yantorobloxhub" class="btn">GABUNG DISCORD</a>
+        <div class="ft">YANTOHUB PRIVATE ENDPOINT V2</div>
+    </div>
+</body>
+</html>
       `);
     }
   } catch (e) {
-    return res.status(500).send("-- Internal Server Error: " + e.message);
+    return res.status(500).send("-- Internal Error");
   }
 }
