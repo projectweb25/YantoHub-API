@@ -3,8 +3,7 @@ const gateway = require('./gateway.js');
 
 export default async function handler(req, res) {
   try {
-    const url = req.url || '';
-    const id = url.split('/').pop().split('?')[0];
+    const id = req.query.id || "";
     const target = scripts[id];
 
     if (target && gateway(req)) {
@@ -16,7 +15,7 @@ export default async function handler(req, res) {
       res.setHeader('Content-Type: text/plain; charset=utf-8');
       return res.status(200).send(payload);
     } else {
-      res.setHeader('Content-Type', 'text/html');
+      res.setHeader('Content-Type: text/html');
       return res.status(403).send(`
 <!DOCTYPE html>
 <html lang="id">
@@ -30,17 +29,14 @@ export default async function handler(req, res) {
         * { margin: 0; padding: 0; box-sizing: border-box; }
         body { background: var(--bg); font-family: 'Plus Jakarta Sans', sans-serif; height: 100vh; display: flex; align-items: center; justify-content: center; overflow: hidden; color: white; }
         body::before { content: ""; position: absolute; inset: 0; background: radial-gradient(circle at center, rgba(255, 0, 0, 0.1) 0%, transparent 70%); z-index: -1; }
-        body::after { content: ""; position: absolute; inset: 0; background-image: radial-gradient(rgba(255,255,255,0.03) 1px, transparent 1px); background-size: 35px 35px; z-index: -1; mask-image: radial-gradient(circle at center, black, transparent 80%); }
-        .sc { position: absolute; top: 0; left: 0; width: 100%; height: 3px; background: linear-gradient(90deg, transparent, var(--p), transparent); box-shadow: 0 0 15px var(--p); animation: scan 3s linear infinite; z-index: 5; }
+        .sc { position: absolute; top: 0; left: 0; width: 100%; height: 3px; background: linear-gradient(90deg, transparent, var(--p), transparent); box-shadow: 0 0 15px var(--p); animation: scan 3s linear infinite; }
         @keyframes scan { 0% { top: -5%; } 100% { top: 105%; } }
-        .card { background: var(--c); border: 1px solid rgba(255, 0, 0, 0.2); border-radius: 30px; padding: 60px 45px; width: 460px; max-width: 92vw; text-align: center; backdrop-filter: blur(25px); box-shadow: 0 30px 100px #000; animation: em 0.8s cubic-bezier(0.16, 1, 0.3, 1); }
-        @keyframes em { from { opacity: 0; transform: translateY(30px); } to { opacity: 1; transform: translateY(0); } }
-        .sh { width: 90px; height: 90px; background: rgba(255, 0, 0, 0.05); border: 1px solid var(--p); border-radius: 22px; margin: 0 auto 30px; display: flex; align-items: center; justify-content: center; box-shadow: 0 0 30px rgba(255, 0, 0, 0.2); }
+        .card { background: var(--c); border: 1px solid rgba(255, 0, 0, 0.2); border-radius: 30px; padding: 60px 45px; width: 460px; max-width: 92vw; text-align: center; backdrop-filter: blur(25px); box-shadow: 0 30px 100px #000; }
+        .sh { width: 90px; height: 90px; background: rgba(255, 0, 0, 0.05); border: 1px solid var(--p); border-radius: 22px; margin: 0 auto 30px; display: flex; align-items: center; justify-content: center; }
         .ti { font-size: 32px; font-weight: 800; margin-bottom: 15px; text-transform: uppercase; }
         .ti span { color: var(--p); }
         .su { font-size: 14px; color: rgba(255,255,255,0.4); line-height: 1.7; margin-bottom: 35px; }
         .btn { display: flex; align-items: center; justify-content: center; background: linear-gradient(135deg, #ff0000, #990000); color: white; text-decoration: none; padding: 18px; border-radius: 15px; font-weight: 800; font-size: 13px; transition: 0.4s; border: 1px solid rgba(255,255,255,0.1); text-transform: uppercase; }
-        .btn:hover { transform: translateY(-5px); box-shadow: 0 15px 40px rgba(255, 0, 0, 0.4); }
         .ft { margin-top: 40px; font-family: monospace; font-size: 10px; color: rgba(255,255,255,0.15); letter-spacing: 2px; }
     </style>
 </head>
@@ -53,8 +49,8 @@ export default async function handler(req, res) {
             </svg>
         </div>
         <h1 class="ti">AKSES <span>DITOLAK</span></h1>
-        <p class="su">Gunakan executor Roblox untuk mengakses YantoHub. Browser tidak diizinkan melihat isi script.</p>
-        <a href="https://dsc.gg/yantorobloxhub" class="btn">GABUNG DISCORD</a>
+        <p class="su">Unauthorized environment detected. Decryption is only possible through a virtualized Roblox executor.</p>
+        <a href="https://dsc.gg/yantorobloxhub" class="btn">JOIN DISCORD FOR ACCESS</a>
         <div class="ft">YANTOHUB PRIVATE ENDPOINT V2</div>
     </div>
 </body>
@@ -62,6 +58,6 @@ export default async function handler(req, res) {
       `);
     }
   } catch (e) {
-    return res.status(500).send("-- Server Error");
+    return res.status(500).send("-- Internal Server Error");
   }
 }
