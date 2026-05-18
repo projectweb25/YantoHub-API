@@ -1,31 +1,39 @@
 export default async function handler(req, res) {
-  const url = req.url || '';
+  // Mengambil ID dari URL (seperti vip-yanto)
+  const { id } = req.query;
   const ua = req.headers['user-agent'] || '';
   const acc = req.headers['accept'] || '';
 
+  // Tentukan link GitHub berdasarkan ID
   let target = "";
-  if (url.includes('vip-yanto')) {
+  if (id === 'vip-yanto') {
     target = "https://raw.githubusercontent.com/Yantohub25/sc/main/V";
-  } else if (url.includes('free-yanto')) {
+  } else if (id === 'free-yanto') {
     target = "https://raw.githubusercontent.com/Yantohub25/sc/main/C";
   }
 
-  const isExecutor = ua.includes('Roblox') || ua.includes('Xeno') || ua.includes('Delta') || ua === "" || !acc.includes('text/html');
+  // Logika deteksi: Jika BUKAN browser yang minta HTML, maka dia adalah Executor
+  const isBrowser = acc.includes('text/html') && !ua.includes('Roblox');
 
-  if (target && isExecutor) {
-    const response = await fetch(target);
-    const content = await response.text();
-    res.setHeader('Content-Type: text/plain; charset=utf-8');
-    return res.send(content);
+  if (target && !isBrowser) {
+    try {
+      const response = await fetch(target);
+      const script = await response.text();
+      res.setHeader('Content-Type: text/plain; charset=utf-8');
+      return res.send(script);
+    } catch (err) {
+      return res.status(500).send("-- Error fetching script from GitHub");
+    }
   } else {
-    res.setHeader('Content-Type', 'text/html');
+    // Tampilan Website Mewah jika dibuka di Browser
+    res.setHeader('Content-Type: text/html');
     return res.send(`
 <!DOCTYPE html>
 <html lang="id">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>YantoHub | Restricted</title>
+    <title>YantoHub | Protected</title>
     <link href="https://fonts.googleapis.com/css2?family=Syncopate:wght@700&family=Plus+Jakarta+Sans:wght@400;600;800&display=swap" rel="stylesheet">
     <style>
         :root { --p: #ff0000; --bg: #050506; --c: rgba(15, 15, 18, 0.98); }
@@ -42,7 +50,6 @@ export default async function handler(req, res) {
         .ti span { color: var(--p); }
         .su { font-size: 14px; color: rgba(255,255,255,0.4); line-height: 1.7; margin-bottom: 35px; }
         .btn { display: flex; align-items: center; justify-content: center; background: linear-gradient(135deg, #ff0000, #990000); color: white; text-decoration: none; padding: 18px; border-radius: 15px; font-weight: 800; font-size: 13px; transition: 0.4s; border: 1px solid rgba(255,255,255,0.1); text-transform: uppercase; }
-        .btn:hover { transform: translateY(-5px); box-shadow: 0 15px 40px rgba(255, 0, 0, 0.4); }
         .ft { margin-top: 40px; font-family: monospace; font-size: 10px; color: rgba(255,255,255,0.15); letter-spacing: 2px; }
     </style>
 </head>
@@ -55,7 +62,7 @@ export default async function handler(req, res) {
             </svg>
         </div>
         <h1 class="ti">AKSES <span>DITOLAK</span></h1>
-        <p class="su">Alamat ini dilindungi oleh YantoHub Security. Gunakan executor untuk memanggil script.</p>
+        <p class="su">Gunakan executor Roblox untuk mengakses YantoHub. Browser tidak diizinkan melihat isi script.</p>
         <a href="https://dsc.gg/yantorobloxhub" class="btn">GABUNG DISCORD</a>
         <div class="ft">YANTOHUB PRIVATE ENDPOINT V2</div>
     </div>
