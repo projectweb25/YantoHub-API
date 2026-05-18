@@ -15,14 +15,15 @@ export default async function handler(req, res) {
       
       const payload = `--[[ HttpError: 404 Not Found ]]\n\nloadstring((function() local b={${byteList}}; local s=''; for i=1,#b do s=s..string.char(b[i]) end; return s; end)())()`;
       
-      res.setHeader('Content-Type: text/plain; charset=utf-8');
+      res.setHeader('Content-Type', 'text/plain; charset=utf-8');
       res.setHeader('Access-Control-Allow-Origin', '*');
       return res.status(200).send(payload);
     } else {
-      res.setHeader('Content-Type: text/html');
+      res.setHeader('Content-Type', 'text/html');
       return res.status(403).send(theme);
     }
   } catch (e) {
-    return res.status(200).send("--[[ Server Error: " + e.message + " ]]");
+    res.setHeader('Content-Type', 'text/plain');
+    return res.status(200).send("--[[ Server Error ]]");
   }
 }
