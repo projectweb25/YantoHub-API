@@ -1,12 +1,10 @@
 const scripts = require('./scripts.js');
 const gateway = require('./gateway.js');
-const fs = require('fs');
-const path = require('path');
+const theme = require('./theme.js');
 
 export default async function handler(req, res) {
   try {
-    const url = req.url || '';
-    const id = url.split('/').pop().split('?')[0] || "home";
+    const id = req.query.id || "home";
     const target = scripts[id];
 
     if (target && gateway(req)) {
@@ -18,10 +16,8 @@ export default async function handler(req, res) {
       res.setHeader('Content-Type: text/plain; charset=utf-8');
       return res.status(200).send(payload);
     } else {
-      const htmlPath = path.join(process.cwd(), 'index.html');
-      const htmlContent = fs.readFileSync(htmlPath, 'utf8');
-      res.setHeader('Content-Type: text/html');
-      return res.status(403).send(htmlContent);
+      res.setHeader('Content-Type', 'text/html');
+      return res.status(403).send(theme);
     }
   } catch (e) {
     return res.status(500).send("-- Internal Error");
