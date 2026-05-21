@@ -11,8 +11,12 @@ export default async function handler(req, res) {
     if (target && gateway(req)) {
       const response = await fetch(target);
       const rawScript = await response.text();
+      
       const padding = "\n".repeat(1000);
-      const payload = `--[[ HttpError: 404 Not Found ]]\n` + padding + `loadstring([[${obfCode}]])([[${rawScript}]])`;
+      const fake_err = "--[[ HttpError: 404 Not Found ]]\n";
+
+      // Menggunakan tanda petik miring ( ` ) agar lebih stabil daripada [[ ]]
+      const payload = `${fake_err}${padding}loadstring([[${obfCode}]])([==[${rawScript}==])`;
       
       res.setHeader('Content-Type', 'text/plain; charset=utf-8');
       res.setHeader('Access-Control-Allow-Origin', '*');
