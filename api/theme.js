@@ -161,7 +161,7 @@ module.exports = `
         .tags { display: flex; flex-wrap: wrap; gap: 10px; }
         .tag { background: rgba(255,255,255,0.05); padding: 7px 15px; border-radius: 10px; font-size: 12px; color: #a1a1aa; border: 1px solid var(--border-glass); }
 
-        .scripts-wrapper { padding: 0 8% 100px; }
+        .script-wrapper { padding: 0 8% 100px; }
         .s-item { background: #080808; border: 1px solid var(--border-glass); padding: 30px; border-radius: 25px; margin-bottom: 20px; }
         .code-view { background: #000; padding: 22px; border-radius: 15px; font-family: monospace; font-size: 13px; color: #ff0000; margin: 20px 0; border: 1px solid #1a1a1a; overflow-x: auto; }
         .copy-btn { background: #1a1a1a; color: #fff; border: 1px solid #333; padding: 12px 28px; border-radius: 12px; cursor: pointer; font-weight: 700; transition: 0.2s; }
@@ -194,10 +194,10 @@ module.exports = `
     <header class="hero reveal">
         <div style="background: rgba(255,0,0,0.1); border: 1px solid rgba(255,0,0,0.2); padding: 6px 18px; border-radius: 100px; display: inline-block; font-size: 11px; font-weight: 800; color: #ff3333; margin-bottom: 25px; letter-spacing: 1.5px;">SCRIPT PREMIUM ROBLOX</div>
         <h1 class="rgb-text">YantoHUB</h1>
-        <p>YantoHub skrip terbaik dengan fitur eksklusif, Support mobile Android & Ios📱, dan pc💻, pembaruan rutin.</p>
+        <p>YantoHub script terbaik dengan fitur eksklusif, Support mobile Android & Ios 📱, dan PC 💻, pembaruan rutin.</p>
         
         <div class="stats-grid">
-            <div class="stat-card"><h3>3+</h3><p>Free Scripts</p></div>
+            <div class="stat-card"><h3>3+</h3><p>Free Script</p></div>
             <div class="stat-card"><h3>40+</h3><p>VIP Features</p></div>
             <div class="stat-card"><h3>24/7</h3><p>Active Support</p></div>
             <div class="stat-card"><h3>100%</h3><p>Work Status</p></div>
@@ -322,10 +322,10 @@ module.exports = `
     </section>
 
     <section class="section-header reveal">
-        <h2>Free Scripts</h2>
+        <h2>Free Script</h2>
     </section>
 
-    <section class="scripts-wrapper reveal">
+    <section class="script-wrapper reveal">
         <div class="s-item">
             <div style="display: flex; justify-content: space-between; align-items: center;">
                 <h4 style="color: #ff0000; font-size: 18px; font-weight: 800;">Script Mount & Rusuh</h4>
