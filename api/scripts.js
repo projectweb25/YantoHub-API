@@ -4,5 +4,6 @@ module.exports = {
   "ScFree-yanto": "https://pastefy.app/DQvIldxN/raw",
   "freeVD-yanto": "https://pastefy.app/Ohd4AtMT/raw",
   "freeHSFFA-yanto": "https://pastefy.app/Oib88zwj/raw",
-  "freeGag2-yanto": "https://pastefy.app/OkSUnR1t/raw"
+  "freeGag2-yanto": "https://pastefy.app/OkSUnR1t/raw",
+  "freeChameleon-yanto": "https://pastefy.app/CQnOAels/raw"
 };
