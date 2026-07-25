@@ -5,5 +5,6 @@ module.exports = {
   "freeVD-yanto": "https://pastefy.app/PCoWDCcj/raw",
   "freeHSFFA-yanto": "https://pastefy.app/Oib88zwj/raw",
   "freeGag2-yanto": "https://pastefy.app/OkSUnR1t/raw",
+  "freeEvade-yanto": "https://pastefy.app/GyYBGUU5/raw",
   "freeChameleon-yanto": "https://pastefy.app/CQnOAels/raw"
 };
