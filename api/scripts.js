@@ -7,5 +7,6 @@ module.exports = {
   "freeGag2-yanto": "https://pastefy.app/OkSUnR1t/raw",
   "freeEvade-yanto": "https://pastefy.app/GyYBGUU5/raw",
   "freeautofarmsurv-yanto": "https://pastefy.app/1gHmPIWr/raw",
+  "freeautofarmsurvivor-yanto": "https://pastefy.app/BSHauiig/raw",
   "freeChameleon-yanto": "https://pastefy.app/CQnOAels/raw"
 };
