@@ -2,7 +2,7 @@ module.exports = {
   "vip-yanto": "https://raw.githubusercontent.com/Yantohub25/sc/main/V",
   "free-yanto": "https://pastefy.app/rD4WKnuR/raw",
   "ScFree-yanto": "https://pastefy.app/DQvIldxN/raw",
-  "freeVD-yanto": "https://pastefy.app/1hr0uhrx/raw",
+  "freeVD-yanto": "https://pastefy.app/Ntf8P5eW/raw",
   "freeHSFFA-yanto": "https://pastefy.app/Oib88zwj/raw",
   "freeGag2-yanto": "https://pastefy.app/OkSUnR1t/raw",
   "freeEvade-yanto": "https://pastefy.app/GyYBGUU5/raw",
