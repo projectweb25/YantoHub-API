@@ -4,7 +4,7 @@ module.exports = {
   "vipautofarmsurvvd-yanto": "https://pastefy.app/WPDJVsXM/raw",
   "free-yanto": "https://pastefy.app/rD4WKnuR/raw",
   "ScFree-yanto": "https://pastefy.app/DQvIldxN/raw",
-  "freeVD-yanto": "https://pastefy.app/Ntf8P5eW/raw",
+  "freeVD-yanto": "https://pastefy.app/jZfiIZTw/raw",
   "freeHSFFA-yanto": "https://pastefy.app/Oib88zwj/raw",
   "freeGag2-yanto": "https://pastefy.app/OkSUnR1t/raw",
   "freeEvade-yanto": "https://pastefy.app/GyYBGUU5/raw",
