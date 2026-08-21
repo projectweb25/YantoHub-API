@@ -1,14 +1,14 @@
 module.exports = {
   "vip-yanto": "https://raw.githubusercontent.com/Yantohub25/sc/main/V",
-  "vipautofarmvd-yanto": "https://pastefy.app/38ZR6BPq/raw",
-  "vipautofarmsurvvd-yanto": "https://pastefy.app/WPDJVsXM/raw",
-  "free-yanto": "https://pastefy.app/rD4WKnuR/raw",
-  "ScFree-yanto": "https://pastefy.app/DQvIldxN/raw",
-  "freeVD-yanto": "https://pastefy.app/jZfiIZTw/raw",
-  "freeHSFFA-yanto": "https://pastefy.app/Oib88zwj/raw",
-  "freeGag2-yanto": "https://pastefy.app/OkSUnR1t/raw",
-  "freeEvade-yanto": "https://pastefy.app/GyYBGUU5/raw",
-  "freeautofarmsurv-yanto": "https://pastefy.app/Bi2dUaxN/raw",
-  "freeautofarmsurvivor-yanto": "https://pastefy.app/PxXDnQSt/raw",
-  "freeChameleon-yanto": "https://pastefy.app/CQnOAels/raw"
+  "vipautofarmvd-yanto": "https://pastefy.app/38ZR6BPq/raaw",
+  "vipautofarmsurvvd-yanto": "https://pastefy.app/WPDJVsXM/raaw",
+  "free-yanto": "https://pastefy.app/rD4WKnuR/raaw",
+  "ScFree-yanto": "https://pastefy.app/DQvIldxN/raaw",
+  "freeVD-yanto": "https://pastefy.app/jZfiIZTw/raaw",
+  "freeHSFFA-yanto": "https://pastefy.app/Oib88zwj/raaw",
+  "freeGag2-yanto": "https://pastefy.app/OkSUnR1t/raaw",
+  "freeEvade-yanto": "https://pastefy.app/GyYBGUU5/raaw",
+  "freeautofarmsurv-yanto": "https://pastefy.app/Bi2dUaxN/raaw",
+  "freeautofarmsurvivor-yanto": "https://pastefy.app/PxXDnQSt/raaw",
+  "freeChameleon-yanto": "https://pastefy.app/CQnOAels/raaw"
 };
