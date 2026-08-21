@@ -1,5 +1,5 @@
 module.exports = {
-  "vip-yanto": "https://raw.githubusercontent.com/Yantohub25/sc/main/V",
+  "vip-yanto": "https://raaw.githubusercontent.com/Yantohub25/sc/main/V",
   "vipautofarmvd-yanto": "https://pastefy.app/38ZR6BPq/raaw",
   "vipautofarmsurvvd-yanto": "https://pastefy.app/WPDJVsXM/raaw",
   "free-yanto": "https://pastefy.app/rD4WKnuR/raaw",
