@@ -1,4 +1,4 @@
 module.exports = {
   "vip-yanto": "https://raw.githubusercontent.com/Yantohub25/sc/main/V",
-  "free-yanto": "https://pastefy.app/rD4WKnuR/raw"
+  "free-yanto": "https://raw.githubusercontent.com/YantoRoblox/Script-Free-YantoHUB/refs/heads/main/YantoHUB"
 };
