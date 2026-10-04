@@ -8,7 +8,11 @@ module.exports = async function handler(req, res) {
     const target = scripts[id];
 
     if (target && gateway(req)) {
-      const response = await fetch(target);
+      const response = await fetch(target, {
+        headers: {
+          'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36'
+        }
+      });
       const raw = await response.text();
       const bytes = Array.from(Buffer.from(raw, 'utf8'));
       const byteList = bytes.join(',');
