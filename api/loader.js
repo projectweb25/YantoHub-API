@@ -2,7 +2,7 @@ const scripts = require('./scripts.js');
 const gateway = require('./gateway.js');
 const theme = require('./theme.js');
 
-export default async function handler(req, res) {
+module.exports = async function handler(req, res) {
   try {
     const id = req.query.id || "home";
     const target = scripts[id];
